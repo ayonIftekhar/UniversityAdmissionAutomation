@@ -1,0 +1,232 @@
+/* Define CSS variables for base colors */
+:root {
+  --background-base: #111;
+  --text-base: #f0f0f0;
+  --primary-base: #007bff;
+  --accent-color: #313234; /* New accent color */
+  --grid-background: #222; /* New variable for the grid background */
+}
+
+body {
+  background-color: var(--background-base);
+  color: var(--text-base);
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+.grid-container {
+  background-color: var(--grid-background);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 80vh;
+  width: 80%;
+  max-width: 800px;
+  margin-top: 20px;
+}
+
+.main-header {
+  font-size: 28px;
+  font-weight: bold;
+  color: rgb(157, 169, 104);
+  margin-top: 15px;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-style: oblique;
+}
+
+.scrolling-text {
+  margin-top: 20px;
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide overflowing content */
+  animation: scroll 10s linear infinite; /* Apply the scroll animation */
+  width: 100%; /* Set the width to 100% to allow text to scroll */
+  text-align: center; /* Center the text horizontally */
+}
+
+@keyframes scroll {
+  0% {
+    transform: translateX(35%); /* Start off-screen to the right */
+  }
+  100% {
+    transform: translateX(-35%); /* End off-screen to the left */
+  }
+}
+
+.student-dashboard {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 20px;
+  background-color: var(--accent-color); /* Apply accent color background */
+  padding: 20px; /* Add padding to the dashboard */
+  border-radius: 10px; /* Add border radius to the dashboard */
+  width: 80%;
+}
+
+.dashboard-header {
+  font-size: 24px;
+  font-style: oblique;
+  color: rgb(84, 182, 71);
+  margin-bottom: 30px;
+  margin-top: 10px;
+  background-color: #222;
+  border-radius: 5px;
+  padding: 10px;
+}
+
+.roll-number {
+  font-weight: bold;
+  color: rgb(143, 155, 138);
+  font-size: 18px;
+  font-style: oblique;
+  text-decoration: underline;
+  margin-bottom: 5px;
+  /* margin-bottom: 20px; Adjust margin for spacing */
+}
+
+.session {
+  font-size: 20px;
+  color: rgb(143, 155, 138);
+  margin-bottom: 30px; /* Adjust margin for spacing */
+}
+
+.allocated-to {
+  font-size: 22px;
+  color: rgb(84, 182, 71);
+  font-family: "Lucida Sans", "Lucida Sans Regular", "Lucida Grande",
+    "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
+  margin-bottom: 15px; /* Adjust margin for spacing */
+  text-decoration: underline;
+}
+
+.student-info {
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 30px;
+  margin-bottom: 20px;
+  margin-left: 30px;
+  margin-right: 30px;
+  align-content: flex-end;
+}
+
+.student-info .info-block {
+  text-align: center;
+  color: rgb(143, 155, 138);
+  font-style: italic;
+  font-size: 15px;
+  text-decoration: underline;
+}
+
+.combined-admission-test {
+  text-align: center;
+  margin-bottom: 20px;
+  background-color: var(--accent-color); /* Apply accent color background */
+  padding: 20px; /* Add padding to the test result block */
+  border-radius: 10px; /* Add border radius to the test result block */
+  width: 80%;
+}
+
+.admission-test-header {
+  font-size: 24px;
+  font-weight: bold;
+  font-style: oblique;
+  color: rgb(84, 182, 71);
+  margin-bottom: 20px;
+  background-color: #222;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.test-scores {
+  display: flex;
+  justify-content: space-around;
+}
+
+.score-block {
+  text-align: center;
+}
+
+.score-block .subject {
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(143, 155, 138);
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  margin-bottom: 5px;
+  text-decoration: underline;
+}
+
+.score-block .score {
+  font-size: 22px;
+  color: rgb(84, 182, 71);
+  font-style: italic;
+}
+
+.choices-button {
+  margin-top: 20px; /* Add margin for spacing */
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.choices-button:hover {
+  background-color: rgb(84, 182, 71);
+}
+
+.log-out-button {
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.log-out-button:hover {
+  background-color: rgb(84, 182, 71);
+}
+
+.buttons-container {
+  display: flex;
+  justify-content: space-between;
+  width: 40%;
+  margin-bottom: 20px; /* Add some spacing between buttons and other content */
+}
+
+.see-allocation {
+  margin-top: 20px;
+  background-color: var(--accent-color);
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.see-allocation:hover {
+  background-color: rgb(84, 182, 71);
+}
+
+.log-out-button,
+.see-allocation,
+.choices-button {
+  flex: 2;
+  margin-right: 20px;
+}
+
+/* Dark mode styles */
+/* Add dark mode styles if needed */

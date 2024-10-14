@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login and Register</title>
+  <link rel="stylesheet" href="styles.css"> <!-- Include the CSS file -->
+</head>
+<body>
+  <div class="view-switcher">
+    <button id="loginBtn">Login</button>
+    <button id="registerBtn">Register</button>
+  </div>
+
+  <div class="login-container" id="loginContainer" <% if (typeof register === 'undefined' || !register) { %>style="display: block;"<% } else { %>style="display: none;"<% } %>>
+    <h1>Welcome Back!</h1>
+    <% if (typeof error !== 'undefined') { %>
+      <p class="error"><%= error %></p>
+    <% } %>
+    <form method="POST" action="">
+      <input type="hidden" name="registerView" value="false">
+      <input type="text" name="username" id="username" placeholder="Username" required>
+      <input type="password" name="password" id="password" placeholder="Password" required>
+      <button type="submit" id="log_in">Log In</button>
+    </form>
+  </div>
+
+  <div class="register-container" id="registerContainer" <% if (typeof register !== 'undefined' && register) { %>style="display: block;"<% } else { %>style="display: none;"<% } %>>
+    <h1>Create an Account</h1>
+    <% if (typeof registerError !== 'undefined') { %>
+      <p class="error"><%= registerError %></p>
+    <% } %>
+    <form method="POST" action="">
+      <input type="hidden" name="registerView" value="true">
+      <input type="text" name="rollNumber" id="rollNumber" placeholder="Roll Number" required>
+      <input type="text" name="session" id="session" placeholder="Session" required>
+      <input type="text" name="newUsername" id="newUsername" placeholder="Username" required>
+      <input type="password" name="newPassword" id="newPassword" placeholder="Password" required>
+      <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password" required>
+      <button type="submit">Register</button>
+    </form>
+  </div>
+
+  <script>
+    const loginBtn = document.getElementById('loginBtn');
+    const registerBtn = document.getElementById('registerBtn');
+    const loginContainer = document.getElementById('loginContainer');
+    const registerContainer = document.getElementById('registerContainer');
+
+    loginBtn.addEventListener('click', () => {
+      loginContainer.style.display = 'block';
+      registerContainer.style.display = 'none';
+    });
+
+    registerBtn.addEventListener('click', () => {
+      loginContainer.style.display = 'none';
+      registerContainer.style.display = 'block';
+    });
+
+    document.addEventListener('DOMContentLoaded', () => {
+      // Clear the input fields on page load
+      document.getElementById('username').value = '';
+      document.getElementById('password').value = '';
+    });
+  </script>
+
+</body>
+</html>

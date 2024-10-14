@@ -1,0 +1,103 @@
+body {
+    background-color: #3d3c3c; /* Lighter color for the entire page background */
+    color: #e6dbdb; /* Darker color for the text inside the container */
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 80%;
+    width: 50%;
+    border-radius: 10px;
+    background-color: #222; /* Darker color for the container background */
+    padding: 20px; /* Add some padding inside the container */
+  }
+
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 30px;
+    color: #c79652; /* Lighter color for the title text */
+    transform: translateY(0px);
+  }
+
+  .logo {
+    position: relative;
+    margin-bottom: 20px; /* Add margin at the bottom of the logo */
+    transform: translateY(0px);
+  }
+  
+  .logo img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #007BFF;
+    border-radius: 50%;
+    background-color: #007BFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px; /* Adjust the padding to reduce the gap */
+  }
+  .departments-table {
+    border-collapse: collapse;
+    width: 100%;
+    border: 2px solid #007BFF;
+    border-spacing: 10px;
+    margin-top: 20px; /* Add space between the title and table */
+    transform: translateY(-10px);
+    overflow-y: auto;
+  }
+
+  .table-container {
+    max-height: 400px; /* Set the maximum height for the table container */
+    overflow-y: auto; /* Enable vertical scrollbar when content exceeds container height */
+    font-style: italic;
+    width: 700px;
+  }
+
+  .departments-table th,
+.departments-table td {
+  border: 1px solid #cab5b5;
+  padding: 8px;
+  text-align: center;
+}
+
+.departments-table th {
+  background-color: #2f2c2c;
+}
+
+.departments-table tr:nth-child(even) {
+  background-color: #5f5b5b;
+}
+.departments-table tr:nth-child(odd) {
+  background-color: #4f4b4b;
+}
+
+.gpa-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #554646;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.gpa-section span {
+  font-size: 16px;
+  font-weight: bold;
+  padding-right: 10px;
+  font-style: italic;
+  margin-right: 20px;
+  color: #cab4b4;
+}

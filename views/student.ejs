@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Information</title>
+  <link rel="stylesheet" href="/student.css" />
+</head>
+
+<body>
+  <% function getOrdinal(number) {
+    if ( number % 100===11 || number % 100===12 || number % 100===13 ) {
+      return number + "th" ;
+    }
+    lastDigit=number % 10;
+    switch (lastDigit) {
+      case 1: return number + "st" ; 
+      case 2: return number + "nd" ;
+      case 3: return number + "rd" ;
+      default: return number + "th" ; 
+      }
+    } %>
+    
+    <div class="grid-container">
+      <div class="main-header">Combined Admission Test</div>
+      <% if (typeof allocationCount !=='undefined' && allocationCount> 0) { %>
+        <div class="scrolling-text">
+          <%= `${getOrdinal(allocationCount)}` %> allocation process completed
+        </div>
+        <% } %>
+          <div class="student-dashboard">
+            <div class="dashboard-header">Student Dashboard</div>
+            <div class="roll-number">Admission Roll: <%= roll %>
+            </div>
+            <div class="session">Session: <%= session %>
+            </div>
+            <div class="allocated-to">Allocated to: <%= allocatedTo %>
+            </div>
+            <div class="student-info">
+              <div class="info-block">
+                <div class="info-label">HSC GPA</div>
+                <div class="info-value">
+                  <%= hscGPA %>
+                </div>
+              </div>
+              <div class="info-block">
+                <div class="info-label">SSC GPA</div>
+                <div class="info-value">
+                  <%= sscGPA %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="combined-admission-test">
+            <div class="admission-test-header">Combined Admission Test Result</div>
+            <div class="test-scores">
+              <div class="score-block">
+                <div class="subject">Physics</div>
+                <div class="score">
+                  <%= physics %>
+                </div>
+              </div>
+              <div class="score-block">
+                <div class="subject">Chemistry</div>
+                <div class="score">
+                  <%= chemistry %>
+                </div>
+              </div>
+              <div class="score-block">
+                <div class="subject">Math</div>
+                <div class="score">
+                  <%= math %>
+                </div>
+              </div>
+              <div class="score-block">
+                <div class="subject">Biology</div>
+                <div class="score">
+                  <%= biology %>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="buttons-container">
+            <form method="post" action="/student">
+              <button class="choices-button">
+                <%= (typeof allocationCount !=='undefined' && allocationCount> 0)
+                  ? 'See Allocation' : 'Choices' %>
+              </button>
+            </form>
+            <button class="log-out-button" onclick="logout()">Log Out</button>
+          </div>
+    </div>
+
+    <script>
+      function logout() {
+        fetch("/logout", {
+          method: "POST",
+        })
+          .then((response) => {
+            // Redirect to the login page or any other page after logout
+            window.location.href = "/";
+          })
+          .catch((error) => {
+            console.error("Logout error:", error);
+          });
+      }
+    </script>
+</body>
+
+</html>

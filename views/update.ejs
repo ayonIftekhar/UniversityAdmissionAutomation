@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/update.css">
+  <title>BUET Update</title>
+</head>
+<body>
+  <div class="grid-container">
+    <div class="logo">
+      <img src="<%= logo %>" alt="University Logo">
+    </div>
+    <h1 class="title">Bangladesh University of Engineering Technology</h1>
+    
+    <!-- Update Department Section -->
+    <form class="cool-form" action="/university/update" method="post">
+      <div class="side-by-side">
+        <div class="input-container">
+          <label for="dept-id" class="dept_id">Enter Dept. Name:</label>
+          <div class="dropdown-container">
+            <select name="dept_id" id="dept-id">
+              <% for(var i=0 ; i<depts.length ; i++){ %>
+                <option value="<%- depts[i][0] %>"><%- depts[i][0] %></option>
+              <% } %>
+              
+            </select>
+          </div>
+        </div>
+        <div class="input-container">
+          <label for="no-of-seats">Enter No. Of Seats:</label>
+          <input type="number" name="no_of_seats" id="no-of-seats">
+        </div>
+      </div>
+      <button type="submit" name="action" value="update">Update</button>
+    </form>
+    
+    <!-- Update GPA Requirement Section -->
+    <form class="cool-form" action="/university/update" method="post">
+      <div class="side-by-side">
+        <div class="input-container">
+          <label for="ssc-gpa">SSC GPA:</label>
+          <input type="text" name="ssc_gpa" id="ssc-gpa">
+        </div>
+        <div class="input-container">
+          <label for="hsc-gpa">HSC GPA:</label>
+          <input type="text" name="hsc_gpa" id="hsc-gpa">
+        </div>
+      </div>
+      <button type="submit" name="action" value="update-gpa">Update GPA Requirement</button>
+    </form>
+    
+    <!-- Update Subject Requirement Section -->
+    <form class="cool-form" action="/university/update" method="post">
+      <div class="side-by-side">
+        <div class="input-container">
+          <label for="dept-name">Math:</label>
+          <input type="text" name="math" id="math">
+        </div>
+        <div class="input-container">
+          <label for="physics">Physics:</label>
+          <input type="text" name="physics" id="physics">
+        </div>
+        <div class="input-container">
+          <label for="chemistry">Chemistry:</label>
+          <input type="text" name="chemistry" id="chemistry">
+        </div>
+        <div class="input-container">
+          <label for="biology">Biology:</label>
+          <input type="text" name="biology" id="biology">
+        </div>
+        <div class="input-container centered">
+          <label for="english">Dept. Name:</label>
+          <div class="dropdown-container2">
+          <select name="dept_name" id="dept_name">
+            <% for(var i=0 ; i<depts.length ; i++){ %>
+              <option value="<%- depts[i][0] %>"><%- depts[i][0] %></option>
+            <% } %>
+            
+          </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="action" value="update-subjects">Update Subject Requirement</button>
+    </form>
+
+    <!-- Delete Department -->
+    <% if (typeof allocatedStudentCount === 'undefined' ||
+          allocatedStudentCount === 0) { %>
+    <form class="cool-form" action="/university/update" method="post">
+      <div class="side-by-side">
+        <div class="input-container">
+          <label for="dept-id" class="dept_id">Enter Dept. Name:</label>
+          <div class="dropdown-container">
+            <select name="dept_id" id="dept-id">
+              <% for(var i=0 ; i<depts.length ; i++){ %>
+                <option value="<%- depts[i][0] %>"><%- depts[i][0] %></option>
+              <% } %>
+              
+            </select>
+          </div>
+        </div>
+      </div>
+      <button type="submit" name="action" value="delete">Delete Department</button>
+    </form>
+    <% } %>
+    
+  </div>
+</body>
+</html>

@@ -1,0 +1,83 @@
+/* Define CSS variables for the dark theme */
+:root {
+  --background-base: #111; /* Dark background color */
+  --text-base: #f0f0f0; /* Light text color */
+  --primary-base: rgb(84, 182, 71); /* Primary color for buttons */
+  --accent-color: #313234; /* Accent color */
+  --grid-background: #222; /* Dark grid background */
+}
+
+/* Apply dark theme to the entire page */
+body {
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-base);
+  color: var(--text-base);
+  font-family: Arial, sans-serif;
+}
+
+/* Apply dark theme to the grid container */
+.grid-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 80%;
+  background-color: var(--grid-background);
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Apply dark theme to the divisions */
+.divisionEligible,
+.divisionChosen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  border: 1px solid var(--accent-color);
+  background-color: var(--background-base);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  height: 400px;
+  overflow: auto;
+  flex: 1;
+}
+
+/* Apply dark theme to dropdowns */
+.mainDropdown {
+  color: #fff;
+  border-width: 5px;
+  border-radius: 5px;
+  margin: 20px;
+  background-color: var(--grid-background);
+}
+
+.secondaryDropdown {
+  color: #fff;
+  border-width: 5px;
+  border-radius: 5px;
+  position: relative;
+  left: 27.5%;
+  background-color: var(--grid-background);
+}
+
+/* Apply dark theme to buttons */
+#submitButton {
+  margin-top: 10px;
+  padding: 10px;
+  background-color: var(--primary-base);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+#submitButton:hover {
+  background-color: var(--accent-color);
+}

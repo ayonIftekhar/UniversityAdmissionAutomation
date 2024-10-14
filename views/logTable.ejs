@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Log Table View</title>
+  <link rel="stylesheet" href="/admin.css"> <!-- Include the external CSS file -->
+</head>
+<body>
+  <div class="logcontainer">
+
+    <div class="title">Log Table for UniversityAdmission Database</div>
+    <div class="table-container">
+    <table class="departments-table">
+      <thead>
+        <tr>
+          <th>User</th>
+          <th>Date-Time</th>
+          <th>Function/Procedure Name</th>
+          <th>Parameters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0 ; i<table.length ; i++){ %>
+          <tr>
+            <td> <%- table[i][0] %></td>
+            <td> <%- table[i][1] %></td>
+            <td> <%- table[i][2] %></td>
+            <td> <%- table[i][3] %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+  <div>
+    <button id="prevPageButton" onclick="prevPageClicked()">Prev Page</button>
+  </div>
+  </div>
+
+  <script>
+    function prevPageClicked() {
+        window.location.href = '/admin';
+    }
+
+  </script>
+
+</body>
+</html>

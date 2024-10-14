@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangladesh University Of Engineering and Technology</title>
+  <link rel="stylesheet" href="/Department.css"> <!-- Include the external CSS file -->
+</head>
+<body>
+  <div class="container">
+    <div class="logo">
+      <img src="<%= process.env.LOGO %>" alt="University Logo">
+    </div>
+    <div class="title">Bangladesh University Of Engineering and Technology</div>
+    <div class="table-container">
+    <table class="departments-table">
+      <thead>
+        <tr>
+          <th>University ID</th>
+          <th>Department Name</th>
+          <th>Total Seats</th>
+          <th>Seats Vacant</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(var i=0 ; i<departments.length ; i++){ %>
+          <tr>
+            <td> <%- departments[i][0] %></td>
+            <td> <%- departments[i][1] %></td>
+            <td> <%- departments[i][2] %></td>
+            <td> <%- departments[i][3] %></td>
+          </tr>
+        <% } %>
+      </tbody>
+    </table>
+  </div>
+  </div>
+</body>
+</html>

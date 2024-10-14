@@ -1,0 +1,136 @@
+/* Define CSS variables for base colors */
+:root {
+    --background-base: #111;
+    --text-base: #f0f0f0;
+    --primary-base: #007BFF;
+    --grid-background: #222; /* New variable for the grid background */
+  }
+  
+  body {
+    background-color: var(--background-base);
+    color: var(--text-base);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  
+  .grid-container {
+    background-color: var(--grid-background); /* Use the new variable for the grid background */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+  }
+  
+  .title {
+    font-size: 24px;
+    font-weight: bold;
+    font-style: italic;
+    color: rgb(171, 175, 35);
+    margin-bottom: 20px;
+    transform: translateY(-40px);
+  }
+  
+  .logo {
+    position: relative;
+    margin-bottom: 20px; /* Add margin at the bottom of the logo */
+    transform: translateY(-60px);
+  }
+  
+  .logo img {
+    width: 100px;
+    height: 100px;
+    border: 2px solid #007BFF;
+    border-radius: 50%;
+    background-color: #007BFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4px; /* Adjust the padding to reduce the gap */
+  }
+  
+  .links {
+    margin-top: 20px;
+    margin-bottom: 60px;
+  }
+  
+  .links a {
+    text-decoration: none;
+    color: var(--primary-base);
+    margin-right: 20px;
+    font-size: 18px;
+  }
+  
+  .links :hover {
+    background-color: #0b0fff;
+    text-decoration: dashed;
+    color: #f0f0f0;
+    margin-right: 20px;
+    padding: 5px;
+    font-size: 20px;
+    border-radius: 10px;
+  }
+  
+  
+  .log-out-button {
+    margin-top: 30px;
+    margin-bottom: 30px; /* Add margin at the bottom of the Log Out button */
+    background-color: #007BFF;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .log-out-button:hover{
+    background-color: #e8d616;
+  }
+  
+  .visit {
+    transform: translateY(370%);
+    font-style: oblique;
+  }
+  
+  .visit a {
+    font-size: 15px;
+    color: #e8d616;
+  }
+  
+  /* Dark mode styles */
+  .dark-mode body {
+    --background-base: #111;
+    --grid-background: #333; /* Use a slightly lighter shade for the grid background */
+    --primary-base: #007BFF;
+  }
+  
+  .dark-mode .grid-container {
+    --background-base: #111;
+    --grid-background: #444; /* Use a slightly darker shade for the grid background in dark mode */
+  }
+  
+  .grid-container .title,
+  .grid-container .logo,
+  .grid-container .links {
+    --text-base: #f0f0f0;
+  }
+
+  .navigation {
+    display: flex;
+    flex-direction: column; /* Align navigation vertically */
+    align-items: center;
+    justify-content: center;
+    
+    padding: 30px;
+    background-color: #333;
+    border-radius: 50px;
+  }

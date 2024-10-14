@@ -1,0 +1,67 @@
+/* Reset default margin and padding for body and the whole page */
+body, html {
+    margin: 0;
+    padding: 0;
+}
+
+/* Apply styles to the whole page with a dark theme */
+body {
+    font-family: Arial, sans-serif; /* Change the font-family as needed */
+    background-color: #111; /* Dark background color */
+    color: #f0f0f0; /* Light text color */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.grid-container {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    border-radius: 10px;
+    margin: 100px;
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 80%;
+    background-color: #222; /* Darker background color */
+}
+
+.title {
+    text-align: center;
+    margin-bottom: 20px; /* Add some spacing below the title */
+}
+
+.container {
+    width: 80%;
+    height: 200px;
+    text-align: center;
+    /* Add other styles for the container as needed */
+}
+
+/* Style for the ordered list */
+.container ol {
+    list-style-type: decimal; /* Use decimal numbering (1, 2, 3, ...) */
+    padding-left: 20px; /* Add left padding to the list items */
+}
+
+/* Style for list items */
+.container ol li {
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.centered-button {
+    text-align: center;
+    margin-top: 5px;
+    align-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.centered-button button {
+    padding: 10px 20px; /* Adjust padding as needed */
+    margin: 5px;
+    background-color: #222;
+    color: #f0f0f0;
+}

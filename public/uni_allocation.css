@@ -1,0 +1,121 @@
+/* Define CSS variables for base colors */
+:root {
+    --background-base: #161616; /* Greyish background */
+    --text-base: #f0f0f0;
+    --primary-base: #007BFF;
+    --grid-background: #444; /* Dark mode grid background */
+  }
+  
+  body {
+    background-color: var(--grid-background);
+    color: var(--text-base);
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column; /* Display content vertically */
+  }
+  
+  /* Add a container for your content */
+  .container {
+    background-color: var(--background-base);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 80vh;
+    margin: 20px auto; /* Center the container horizontally and add margin */
+    min-width: 50%; /* Set the maximum width to 70% of the screen width */
+  }
+  
+  
+  h1 {
+    font-size: 24px;
+    font-weight: bold;
+    color: var(--primary-base);
+    margin-bottom: 20px;
+    text-align: center; /* Center-align the headings */
+  }
+  
+  table {
+    width: 70%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+  }
+  
+  th, td {
+    padding: 8px 12px;
+    text-align: left;
+    border-bottom: 1px solid var(--text-base);
+  }
+  
+  /* Apply styles for links */
+  a {
+    text-decoration: none;
+    color: var(--primary-base);
+  }
+  
+  a:hover {
+    background-color: #0b0fff;
+    text-decoration: dashed;
+    color: #f0f0f0;
+    padding: 5px;
+    border-radius: 10px;
+  }
+  
+  /* Apply styles for buttons */
+  .log-out-button {
+    margin-top: 30px;
+    margin-bottom: 30px;
+    background-color: var(--primary-base);
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+  }
+  
+  .log-out-button:hover {
+    background-color: #e8d616;
+  }
+  
+  /* Add styles for the visit link */
+  .visit {
+    transform: translateY(370%);
+    font-style: oblique;
+  }
+  
+  .visit a {
+    font-size: 15px;
+    color: #e8d616;
+  }
+  
+  /* Style navigation elements */
+  .navigation {
+    display: flex;
+    flex-direction: column; /* Align navigation vertically */
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    background-color: #333;
+    border-radius: 50px;
+    margin-top: 20px; /* Add margin at the top of the navigation */
+  }
+  
+  .navigation a {
+    color: var(--text-base);
+    font-size: 18px;
+    margin: 10px 0;
+  }
+  
+  .navigation a:hover {
+    color: var(--primary-base);
+  }
+  

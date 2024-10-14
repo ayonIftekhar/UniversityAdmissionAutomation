@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin.css" />
+  </head>
+  <body>
+    <div class="container">
+      <%
+        function getOrdinal(number) {
+          if (
+            number % 100 === 11 ||
+            number % 100 === 12 ||
+            number % 100 === 13
+          ) {
+            return number + "th";
+          }
+          lastDigit = number % 10;
+          switch (lastDigit) {
+            case 1:
+              return number + "st";
+            case 2:
+              return number + "nd";
+            case 3:
+              return number + "rd";
+            default:
+              return number + "th";
+          }
+        }
+      %>
+      <!-- Display the count of not allocated students (passed from server side) -->
+      <div class="counts">
+        <% if (typeof allocationCount !== 'undefined' && allocationCount > 0) { %>
+        <div>
+          <p>Allocated for <%= getOrdinal(allocationCount) %> call</p>
+        </div>
+        <% } %> <% if (typeof allocatedStudentCount !== 'undefined' &&
+        allocationCount > 0) { %>
+        <div>
+          <p>Count of Allocated Students: <%= allocatedStudentCount %></p>
+        </div>
+        <% } %> <% if (typeof notAllocatedCount !== 'undefined' &&
+        allocationCount > 0) { %>
+        <div>
+          <p>Count of Not Allocated Students: <%= notAllocatedCount %></p>
+        </div>
+        <% } %>
+      </div>
+
+      <div class="table-container">
+        <!-- Table for scenario of departments (passed from server side) -->
+        <% if (typeof allocationCount !== 'undefined' &&
+        allocationCount > 0 && typeof departmentScenario !== 'undefined') { %>
+        <h2>After Allocation:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>University</th>
+              <th>Department</th>
+              <th>Seats Vacant</th>
+              <th>Students Waiting</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var j = 0; j < departmentScenario.length; j++) { %>
+            <tr>
+              <td><%- departmentScenario[j][0] %></td>
+              <td><%- departmentScenario[j][1] %></td>
+              <td><%- departmentScenario[j][2] %></td>
+              <td><%- departmentScenario[j][3] %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+      
+      <div class="table-container">
+        <!-- Table for list of allocated students (passed from server side) -->
+        <% if (typeof allocationCount !== 'undefined' && allocationCount > 0 &&
+        typeof data !== 'undefined') { %>
+        <h2>List of Allocated Students:</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Roll</th>
+              <th>Session</th>
+              <th>University</th>
+              <th>Department</th>
+              <!-- Add more columns as needed -->
+            </tr>
+          </thead>
+          <tbody>
+            <% for (var i = 0; i < data.length; i++) { %>
+            <tr>
+              <td><%- data[i][0] %></td>
+              <td><%- data[i][1] %></td>
+              <td><%- data[i][2] %></td>
+              <td><%- data[i][3] %></td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+        <% } %>
+      </div>
+      
+      <form action="/admin" method="post">
+        <button id="allocate" type="submit">
+          <%= (typeof allocationCount !== 'undefined' && allocationCount > 0) ?
+          `Allocate for ${getOrdinal(allocationCount+1)} call` : 'Allocate' %>
+        </button>
+      </form>
+    </div>
+    <div class="centered-button">
+      <button id="logoutButton" onclick="logout()">Log Out</button>
+      <button id="showLogTableButton" onclick="showLogTable()">
+        Show Log Table
+      </button>
+    </div>
+
+    <script>
+      function logout() {
+        fetch("/logout", {
+          method: "POST",
+        })
+          .then((response) => {
+            // Redirect to the login page or any other page after logout
+            window.location.href = "/";
+          })
+          .catch((error) => {
+            console.error("Logout error:", error);
+          });
+      }
+
+      function showLogTable() {
+        window.location.href = "/admin/logs";
+      }
+    </script>
+  </body>
+</html>

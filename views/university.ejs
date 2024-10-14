@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bangladesh University Of Engineering and Technology</title>
+  <link rel="stylesheet" href="/university.css"> <!-- Include the external CSS file -->
+</head>
+<body>
+  <div class="grid-container">
+    <div class="logo">
+      <img src="<%= logo %>" alt="University Logo">
+    </div>
+    <div class="title"><%= name %></div>
+    
+    <div class="navigation">
+      <div class="links">
+        <a href="/university/departments">Departments</a>
+        <a href="/university/prerequisites">Prerequisites</a>
+        <a href="/university/update">Update Info</a>
+        <% if (typeof allocatedStudentCount !== 'undefined' &&
+          allocatedStudentCount > 0) { %>
+          <a href="/university/allocation">Allocation Info</a>
+        <% } %>
+      </div>
+      <button class="log-out-button" onclick="logout()">Log Out</button>
+    </div>
+    
+    <div class="visit">
+      <a href="<%= website %>">Visit On Official Website...</a>
+    </div>
+  </div>
+
+  <script>
+    function logout() {
+      fetch('/logout', {
+        method: 'POST'
+      })
+      .then(response => {
+        // Clear the token cookie
+        document.cookie = "token=;";
+        // Redirect to the login page or any other page after logout
+        window.location.href = '/';
+      })
+      .catch(error => {
+        console.error('Logout error:', error);
+      });
+    }
+  </script>
+</body>
+</html>

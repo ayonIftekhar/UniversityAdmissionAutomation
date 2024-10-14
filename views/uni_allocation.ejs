@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Allocation Info</title>
+    <link rel="stylesheet" href="/uni_allocation.css" />
+    <!-- Include the external CSS file -->
+  </head>
+  <body>
+    <div class="container">
+      <h1>Total Scenario</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Department</th>
+            <th>Admitted</th>
+            <th>Yet to Admit</th>
+            <th>Vacant Seat</th>
+            <th>Waiting</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through total scenario data -->
+          <% for (let i = 0; i < totalScenarioData.length; i++) { %>
+          <tr>
+            <td><%= totalScenarioData[i][0] %></td>
+            <td><%= totalScenarioData[i][1] %></td>
+            <td><%= totalScenarioData[i][2] %></td>
+            <td><%= totalScenarioData[i][3] %></td>
+            <td><%= totalScenarioData[i][4] %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+      <h1>Admitted</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Merit</th>
+            <th>Roll</th>
+            <th>Session</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through admitted students data -->
+          <% for (let i = 0; i < admittedStudents.length; i++) { %>
+          <tr>
+            <td><%= admittedStudents[i][0] %></td>
+            <td><%= admittedStudents[i][1] %></td>
+            <td><%= admittedStudents[i][2] %></td>
+            <td><%= admittedStudents[i][3] %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+
+      <h1>Allocated</h1>
+      <table>
+        <thead>
+          <tr>
+            <th>Merit</th>
+            <th>Roll</th>
+            <th>Session</th>
+            <th>Department</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Loop through allocated students data -->
+          <% for (let i = 0; i < allocatedStudents.length; i++) { %>
+          <tr>
+            <td><%= allocatedStudents[i][0] %></td>
+            <td><%= allocatedStudents[i][1] %></td>
+            <td><%= allocatedStudents[i][2] %></td>
+            <td><%= allocatedStudents[i][3] %></td>
+          </tr>
+          <% } %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Confirmed Choice List</title>
+  <link rel="stylesheet" type="text/css" href="/choicelist.css">
+</head>
+<body>
+  <div class="grid-container">
+    <div class="title">
+      <h1>Confirmed Choice List</h1>
+      <p>Session: <%= session %> </p>
+      <p>Student Roll: <%= roll %></p>
+    </div>
+    <div class="container">
+      <ol>
+        <% for(var i=0 ; i<choice.length ; i++){ %>
+            <li> <%= choice[i][0] %> - <%= choice[i][1] %> </li>
+        <%} %>
+      </ol>
+    </div>
+  </div>
+  <div class="centered-button">
+    <button id="submitButton">Make Changes and Submit Again</button>
+    <button id="returnButton" onclick="redirectToDashboard()">Return to Dashboard</button>
+  </div>
+
+  <script>
+    const submitButton = document.getElementById('submitButton');
+
+    submitButton.addEventListener('click', function() {
+      // Redirect to "/student/choice" URL
+      window.location.href = '/student/choice';
+
+      fetch('/student/choice/confirmedChoices',{
+        method : 'POST'
+      })
+      .then((response) => {
+          if (!response.ok) {
+              throw new Error('Network response was not ok');
+          }
+        return response.json();
+      })
+      .then((data) => {
+          console.log(data.message); // Log the message received from the server
+          window.location.href = data.redirectTo; // Redirect to the URL received from the server
+      })
+      .catch(error=>{
+        console.log("choices error: ",error);
+      })
+    });
+
+  function redirectToDashboard() {
+     window.location.href = '/student';
+  }
+  </script>
+</body>
+</html>

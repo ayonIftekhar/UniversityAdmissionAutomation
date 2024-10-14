@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>See Allocation</title>
+  <link rel="stylesheet" href="/see-allocation.css" />
+</head>
+
+<body>
+  <div class="container">
+    <% if (typeof deptName==='undefined' || !deptName.length) { %>
+      <p class="confirmation-text" , style="color: rgb(255, 255, 255)">
+        Sorry, you are not allocated.
+      </p>
+      <% } else { %>
+        <p class="confirmation-text">
+          Congratulations! You have been allocated to <%= deptName[0][0] %>, <%= deptName[0][1] %>
+        </p>
+        <% } %>
+          <% if (typeof waitingChoices !=='undefined' && waitingChoices.length) { %>
+            <table class="choice-list">
+              <caption>
+                Your Waiting Choice List
+              </caption>
+              <thead>
+                <tr>
+                  <th>SL</th>
+                  <th>University</th>
+                  <th>Depertment</th>
+                  <th>Waiting Position</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% for (let i=0; i < waitingChoices.length; i++) { %>
+                  <tr class="choice-item">
+                    <td>
+                      <%= waitingChoices[i][0] %>
+                    </td>
+                    <td>
+                      <%= waitingChoices[i][1] %>
+                    </td>
+                    <td>
+                      <%= waitingChoices[i][2] %>
+                    </td>
+                    <td>
+                      <%= waitingChoices[i][3] %>
+                    </td>
+                  </tr>
+                  <% } %>
+              </tbody>
+            </table>
+            <% } %>
+              <% if (typeof deptName !=='undefined' && deptName.length) { %>
+                <% if (!admissionConfirmed) { %>
+                  <form action="/student/see-allocation" method="post">
+                    <label for="migration" class="checkbox-label">Keep Migration On:</label>
+                    <input type="checkbox" id="migration" name="migration" class="checkbox" checked />
+                    <br />
+                    <button type="submit" class="confirm-button">Confirm Admission</button>
+                  </form>
+                  <% } else { %>
+                    <p class="admission-confirmed">Your admission is confirmed</p>
+                    <% } %>
+                      <% } %>
+  </div>
+
+  <div>
+    <button id="prevPageButton" onclick="prevPageClicked()">Prev Page</button>
+  </div>
+  </div>
+
+  <script>
+    function prevPageClicked() {
+      window.location.href = '/student';
+    }
+
+  </script>
+</body>
+
+</html>

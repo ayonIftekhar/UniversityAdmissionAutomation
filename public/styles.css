@@ -1,0 +1,61 @@
+body {
+    background-color: #222;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .login-container {
+    background-color: #444;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+  }
+  
+  h1 {
+    margin-bottom: 20px;
+    color: #007BFF;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input {
+    background-color: #333;
+    border: none;
+    padding: 15px;
+    margin: 10px 0;
+    color: #fff;
+    border-radius: 5px;
+  }
+  
+  input::placeholder {
+    color: #bbb;
+  }
+  
+  button {
+    background-color: #007BFF;
+    border: none;
+    color: #fff;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  
+  button:hover {
+    background-color: #0056b3;
+  }
+  
